@@ -10,23 +10,19 @@
 <meta property="og:type" content="product">
 <meta property="og:title" content="Туристичний надувний матрац — від 880 грн">
 <meta property="og:description" content="Вбудований ножний насос. До 200 кг. Оплата при отриманні по всій Україні.">
-<!-- TODO: замінити на реальний домен сайту після деплою -->
-<meta property="og:url" content="https://example.com/">
-<meta property="og:image" content="https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784589657/ChatGPT_Image_21_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._02_19_41_pa6fua.webp">
+<meta property="og:image" content="https://res.cloudinary.com/dyb7dyrme/image/upload/v1784589657/ChatGPT_Image_21_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._02_19_41_pa6fua.webp">
 <meta property="og:image:width" content="1024">
 <meta property="og:image:height" content="1024">
-<!-- TODO: поточне og:image квадратне (1024×1024). Для кращого прев'ю в Telegram/Facebook рекомендується окреме зображення 1200×630px -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784589657/ChatGPT_Image_21_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._02_19_41_pa6fua.webp">
+<meta name="twitter:image" content="https://res.cloudinary.com/dyb7dyrme/image/upload/v1784589657/ChatGPT_Image_21_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._02_19_41_pa6fua.webp">
 <meta property="og:price:amount" content="880">
 <meta property="og:price:currency" content="UAH">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230d1710'/%3E%3Cellipse cx='50' cy='58' rx='34' ry='18' fill='%23e07c2e'/%3E%3C/svg%3E">
-<!-- TODO: додати apple-touch-icon.png (180×180px) і вставити реальний шлях нижче -->
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<!-- GA4: вставити тег Google Analytics 4 тут -->
+<link rel="icon" href="favicon-512.png" type="image/png" sizes="512x512">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=optional" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {"@context":"https://schema.org/","@type":"Product","name":"Туристичний надувний матрац","brand":{"@type":"Brand","name":"TrailNest"},"offers":{"@type":"Offer","priceCurrency":"UAH","price":"880","availability":"https://schema.org/InStock","priceValidUntil":"2026-12-31"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"312"}}
@@ -49,10 +45,9 @@
   --white:#ffffff;
   --ember:#e07c2e;
   --ember-d:#b8601a;
-  --ember-text:#a8540f;
   --ember-l:#fff0e0;
   --ink:#0f1a10;
-  --ink-50:rgba(15,26,16,.64);
+  --ink-50:rgba(15,26,16,.5);
   --ink-08:rgba(15,26,16,.08);
   --r-s:8px;--r-m:14px;--r-l:20px;--r-xl:28px;--r-pill:999px;
   --sh-s:0 1px 4px rgba(13,23,16,.08),0 4px 16px rgba(13,23,16,.08);
@@ -87,18 +82,6 @@ a{color:inherit;text-decoration:none;}
 .lead-light{font-size:15px;line-height:1.65;color:var(--mist);text-align:center;}
 .c-white{color:var(--white);}
 .c-ember{color:var(--ember);}
-
-/* достатній контраст тегів на світлих секціях (WCAG AA) */
-.bg-cream .tag,.bg-cream .c-ember,
-.gallery-sec .tag,.gallery-sec .c-ember,
-.reviews-sec .tag,.reviews-sec .c-ember,
-.addons-sec .tag,.addons-sec .c-ember,
-.faq-sec .tag,.faq-sec .c-ember{color:var(--ember-text);}
-.bg-cream .tag::before,.bg-cream .tag::after,
-.gallery-sec .tag::before,.gallery-sec .tag::after,
-.reviews-sec .tag::before,.reviews-sec .tag::after,
-.addons-sec .tag::before,.addons-sec .tag::after,
-.faq-sec .tag::before,.faq-sec .tag::after{background:var(--ember-text);}
 .txt-center{text-align:center;}
 
 /* ── COLOURS ─────────────────────────────────── */
@@ -295,7 +278,6 @@ a{color:inherit;text-decoration:none;}
 
 /* ── REVIEWS ─────────────────────────────────── */
 .reviews-sec{background:var(--cream);}
-.reviews-sec .rating-txt,.reviews-sec .rev-meta{color:var(--ink-50);}
 .review-card{
   background:var(--white);border-radius:var(--r-xl);
   padding:22px;margin-bottom:10px;
@@ -364,7 +346,7 @@ a{color:inherit;text-decoration:none;}
 .addon-photos img{width:100%;aspect-ratio:4/3;object-fit:contain;background:var(--sand);display:block;cursor:pointer;transition:opacity .2s;}
 .addon-photos img:hover{opacity:.88;}
 .addon-body{padding:20px 18px 18px;}
-.addon-body h3{font-size:18px;font-weight:800;margin-bottom:6px;color:var(--ink);text-align:center;line-height:1.2;}
+.addon-body h4{font-size:18px;font-weight:800;margin-bottom:6px;color:var(--ink);text-align:center;line-height:1.2;}
 .addon-body .short{font-size:14px;color:var(--ink-50);margin-bottom:16px;line-height:1.55;text-align:center;}
 .addon-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;}
 .addon-price{font-family:var(--ff-d);font-size:24px;font-weight:900;color:var(--ember);}
@@ -645,7 +627,7 @@ src="https://www.facebook.com/tr?id=930492246520514&ev=PageView&noscript=1"
   </div>
 
   <div class="hero-img">
-    <img src="https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784589657/ChatGPT_Image_21_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._02_19_41_pa6fua.webp" alt="Туристичний надувний матрац біля вогнища" loading="eager">
+    <img src="https://res.cloudinary.com/dyb7dyrme/image/upload/v1784589657/ChatGPT_Image_21_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._02_19_41_pa6fua.webp" alt="Туристичний надувний матрац біля вогнища" loading="eager">
   </div>
 
   <div class="w">
@@ -667,8 +649,6 @@ src="https://www.facebook.com/tr?id=930492246520514&ev=PageView&noscript=1"
   </div>
 </header>
 
-<main>
-
 <!-- HERO CTA -->
 <div class="hero-cta">
   <div class="w">
@@ -689,7 +669,7 @@ src="https://www.facebook.com/tr?id=930492246520514&ev=PageView&noscript=1"
     <h2 class="h2 c-white txt-center" style="margin-top:12px;">Від рюкзака до ліжка<br>за 30 секунд</h2>
   </div>
   <div class="video-wrap">
-    <video src="https://res.cloudinary.com/dyb7dyrme/video/upload/q_auto/v1784587533/%D0%BE%D1%80%D0%B8%D0%B3_qcbqsd.mp4" poster="https://res.cloudinary.com/dyb7dyrme/video/upload/q_auto/v1784587533/%D0%BE%D1%80%D0%B8%D0%B3_qcbqsd.jpg" autoplay muted loop playsinline preload="auto" aria-label="Розпакування та надування матраца за 30 секунд"></video>
+    <video src="https://res.cloudinary.com/dyb7dyrme/video/upload/v1784587533/%D0%BE%D1%80%D0%B8%D0%B3_qcbqsd.mp4" poster="https://res.cloudinary.com/dyb7dyrme/video/upload/v1784587533/%D0%BE%D1%80%D0%B8%D0%B3_qcbqsd.jpg" autoplay muted loop playsinline preload="auto" aria-label="Розпакування та надування матраца за 30 секунд"></video>
   </div>
   <div class="video-cta">
     <a href="#order" class="btn btn-primary">Замовити зараз</a>
@@ -698,12 +678,12 @@ src="https://www.facebook.com/tr?id=930492246520514&ev=PageView&noscript=1"
 
 <!-- ═══ PAIN → SOLUTION PHOTO ═════════════════════ -->
 <div class="fullphoto">
-  <img src="https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784595774/ChatGPT_Image_21_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._04_00_45_ylnmaz.webp" alt="Поганий сон на природі закінчується тут — без матраца проти з матрацом" loading="lazy">
+  <img src="https://res.cloudinary.com/dyb7dyrme/image/upload/v1784595774/ChatGPT_Image_21_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._04_00_45_ylnmaz.webp" alt="Поганий сон на природі закінчується тут — без матраца проти з матрацом" loading="lazy">
 </div>
 
 <!-- ═══ SPECS PHOTO ══════════════════════════════ -->
 <div class="fullphoto">
-  <img src="https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784447011/ChatGPT_Image_17_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._03_31_42_aohhhn.webp" alt="Як накачати та скласти матрац — покрокова інструкція" loading="lazy">
+  <img src="https://res.cloudinary.com/dyb7dyrme/image/upload/v1784447011/ChatGPT_Image_17_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._03_31_42_aohhhn.webp" alt="Як накачати та скласти матрац — покрокова інструкція" loading="lazy">
 </div>
 
 <!-- ═══ QUALITY PHOTO ════════════════════════════ -->
@@ -713,7 +693,7 @@ src="https://www.facebook.com/tr?id=930492246520514&ev=PageView&noscript=1"
     <h2 class="h2" style="margin-top:12px;">Чому цей матрац<br>коштує своїх грошей</h2>
   </div>
   <div class="fullphoto reveal" style="margin-top:24px;">
-    <img src="https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784447011/ChatGPT_Image_17_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._03_28_33_slnb2p.webp" alt="Якість матеріалу — TPU, подвійні шви, клапан" loading="lazy">
+    <img src="https://res.cloudinary.com/dyb7dyrme/image/upload/v1784447011/ChatGPT_Image_17_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._03_28_33_slnb2p.webp" alt="Якість матеріалу — TPU, подвійні шви, клапан" loading="lazy">
   </div>
   <div class="w" style="margin-top:24px;">
     <ul class="cklist quality-list">
@@ -732,13 +712,13 @@ src="https://www.facebook.com/tr?id=930492246520514&ev=PageView&noscript=1"
     <h2 class="h2" style="margin-top:12px;">Використовуй його будь де</h2>
     <div class="gallery reveal">
       <div class="g-cell g-big" onclick="openLb(0)">
-        <img src="https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784449857/2441c9ca-33b0-4efc-9b79-bee0ca9bb28e_vv9a9h.webp" alt="Людина лежить на матраці" loading="lazy">
+        <img src="https://res.cloudinary.com/dyb7dyrme/image/upload/v1784449857/2441c9ca-33b0-4efc-9b79-bee0ca9bb28e_vv9a9h.webp" alt="Людина лежить на матраці" loading="lazy">
       </div>
-      <div class="g-cell" onclick="openLb(1)"><img src="https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784447010/ChatGPT_Image_17_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._03_50_20_ldfh9e.webp" alt="Рибалка" loading="lazy"></div>
-      <div class="g-cell" onclick="openLb(2)"><img src="https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784448078/ChatGPT_Image_17_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._03_50_12_lf7v0g.webp" alt="Намет" loading="lazy"></div>
-      <div class="g-cell" onclick="openLb(3)"><img src="https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784447010/ChatGPT_Image_17_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._03_58_53_tfordu.webp" alt="Багажник авто" loading="lazy"></div>
-      <div class="g-cell" onclick="openLb(4)"><img src="https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784447009/ChatGPT_Image_17_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._03_59_23_l8rw09.webp" alt="Полювання" loading="lazy"></div>
-      <div class="g-cell" onclick="openLb(5)"><img src="https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784447010/ChatGPT_Image_17_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._03_59_16_euslvp.webp" alt="Відпочинок на природі" loading="lazy"></div>
+      <div class="g-cell" onclick="openLb(1)"><img src="https://res.cloudinary.com/dyb7dyrme/image/upload/v1784447010/ChatGPT_Image_17_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._03_50_20_ldfh9e.webp" alt="Рибалка" loading="lazy"></div>
+      <div class="g-cell" onclick="openLb(2)"><img src="https://res.cloudinary.com/dyb7dyrme/image/upload/v1784448078/ChatGPT_Image_17_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._03_50_12_lf7v0g.webp" alt="Намет" loading="lazy"></div>
+      <div class="g-cell" onclick="openLb(3)"><img src="https://res.cloudinary.com/dyb7dyrme/image/upload/v1784447010/ChatGPT_Image_17_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._03_58_53_tfordu.webp" alt="Багажник авто" loading="lazy"></div>
+      <div class="g-cell" onclick="openLb(4)"><img src="https://res.cloudinary.com/dyb7dyrme/image/upload/v1784447009/ChatGPT_Image_17_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._03_59_23_l8rw09.webp" alt="Полювання" loading="lazy"></div>
+      <div class="g-cell" onclick="openLb(5)"><img src="https://res.cloudinary.com/dyb7dyrme/image/upload/v1784447010/ChatGPT_Image_17_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._03_59_16_euslvp.webp" alt="Відпочинок на природі" loading="lazy"></div>
     </div>
     <p class="gallery-note">Компактний і легкий — будеш брати його із собою завжди: риболовля, кемпінг, авто, дача</p>
     <div class="stats-row reveal">
@@ -791,7 +771,7 @@ src="https://www.facebook.com/tr?id=930492246520514&ev=PageView&noscript=1"
 
 <!-- ═══ ADDONS PHOTO ══════════════════════════════ -->
 <div class="fullphoto">
-  <img src="https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784447543/ChatGPT_Image_19_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._10_47_05_yaop2g.webp" alt="Туристичний комплект у наметі" loading="lazy">
+  <img src="https://res.cloudinary.com/dyb7dyrme/image/upload/v1784447543/ChatGPT_Image_19_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._10_47_05_yaop2g.webp" alt="Туристичний комплект у наметі" loading="lazy">
 </div>
 
 <!-- BOTTOM SHEET -->
@@ -911,8 +891,6 @@ src="https://www.facebook.com/tr?id=930492246520514&ev=PageView&noscript=1"
   </div>
 </section>
 
-</main>
-
 <footer>
   <p>Доставляємо по всій Україні Новою поштою та Укрпоштою</p>
   <div class="foot-links">
@@ -994,12 +972,12 @@ window.toggleFaq=function(btn){
 
 /* lightbox */
 var ugc=[
-  'https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784449857/2441c9ca-33b0-4efc-9b79-bee0ca9bb28e_vv9a9h.webp',
-  'https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784447010/ChatGPT_Image_17_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._03_50_20_ldfh9e.webp',
-  'https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784448078/ChatGPT_Image_17_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._03_50_12_lf7v0g.webp',
-  'https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784447010/ChatGPT_Image_17_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._03_58_53_tfordu.webp',
-  'https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784447009/ChatGPT_Image_17_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._03_59_23_l8rw09.webp',
-  'https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784447010/ChatGPT_Image_17_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._03_59_16_euslvp.webp'
+  'https://res.cloudinary.com/dyb7dyrme/image/upload/v1784449857/2441c9ca-33b0-4efc-9b79-bee0ca9bb28e_vv9a9h.webp',
+  'https://res.cloudinary.com/dyb7dyrme/image/upload/v1784447010/ChatGPT_Image_17_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._03_50_20_ldfh9e.webp',
+  'https://res.cloudinary.com/dyb7dyrme/image/upload/v1784448078/ChatGPT_Image_17_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._03_50_12_lf7v0g.webp',
+  'https://res.cloudinary.com/dyb7dyrme/image/upload/v1784447010/ChatGPT_Image_17_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._03_58_53_tfordu.webp',
+  'https://res.cloudinary.com/dyb7dyrme/image/upload/v1784447009/ChatGPT_Image_17_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._03_59_23_l8rw09.webp',
+  'https://res.cloudinary.com/dyb7dyrme/image/upload/v1784447010/ChatGPT_Image_17_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._03_59_16_euslvp.webp'
 ];
 window.openLb=function(i){
   document.getElementById('lbImg').src=ugc[i];
@@ -1118,7 +1096,7 @@ var addons=[
      +'<li><span>Горловина</span><b>широка — зручно мити й класти лід</b></li>'
      +'<li><span>Сумісність</span><b>будь-який туристичний рюкзак</b></li>'
    +'</ul>',
-   photos:['https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784447008/image_sutqki.webp','https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784447009/ChatGPT_Image_18_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._00_35_58_fjfgbm.webp','https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784447010/b623e0ed-cf1b-4cea-9528-1b4cc5cf9168_uyyna8.webp']},
+   photos:['https://res.cloudinary.com/dyb7dyrme/image/upload/v1784447008/image_sutqki.webp','https://res.cloudinary.com/dyb7dyrme/image/upload/v1784447009/ChatGPT_Image_18_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._00_35_58_fjfgbm.webp','https://res.cloudinary.com/dyb7dyrme/image/upload/v1784447010/b623e0ed-cf1b-4cea-9528-1b4cc5cf9168_uyyna8.webp']},
   {id:'shower',title:'Портативний душ',price:780,
    short:'Теплий душ у польових умовах',
    full:'<p class="desc-intro">Портативний душ на акумуляторі — занурюєш насос у будь-яку ємність з водою, і він подає її через гнучкий шланг. Зручний у поході, на дачі та в авто.</p><ul class="spec-list">'
@@ -1130,7 +1108,7 @@ var addons=[
      +'<li><span>Зарядка</span><b>USB-кабель у комплекті</b></li>'
      +'<li><span>Комплектація</span><b>насос, шланг, тримач на присосці, губка, гачок</b></li>'
    +'</ul>',
-   photos:['https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784743646/ChatGPT_Image_22_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._21_04_26_gkeigh.webp','https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784743646/ChatGPT_Image_22_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._21_04_04_gga6by.webp','https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784743645/ChatGPT_Image_22_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._21_04_18_b84ujt.webp']},
+   photos:['https://res.cloudinary.com/dyb7dyrme/image/upload/v1784743646/ChatGPT_Image_22_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._21_04_26_gkeigh.webp','https://res.cloudinary.com/dyb7dyrme/image/upload/v1784743646/ChatGPT_Image_22_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._21_04_04_gga6by.webp','https://res.cloudinary.com/dyb7dyrme/image/upload/v1784743645/ChatGPT_Image_22_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._21_04_18_b84ujt.webp']},
   {id:'stove',title:'Похідний газовий таганок',price:340,
    short:'П\'єзопідпал, складається у мішечок',
    full:'<p class="desc-intro">Компактний газовий таганок із п\'єзопідпалом — розпалюється миттєво, без сірників і запальнички. Постачається зібраним, у власному чохлі.</p><ul class="spec-list">'
@@ -1140,7 +1118,7 @@ var addons=[
      +'<li><span>Комплектація</span><b>чохол для транспортування</b></li>'
      +'<li><span>Газовий балон</span><b>стандартний різьбовий (не входить)</b></li>'
    +'</ul>',
-   photos:['https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784447009/ChatGPT_Image_18_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._01_09_29_dnjeiv.webp','https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784447009/ChatGPT_Image_18_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._01_09_21_z5yruk.webp','https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784450384/e10d2ae8-9197-4fac-a819-8c4448f61b88_phq99g.webp']},
+   photos:['https://res.cloudinary.com/dyb7dyrme/image/upload/v1784447009/ChatGPT_Image_18_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._01_09_29_dnjeiv.webp','https://res.cloudinary.com/dyb7dyrme/image/upload/v1784447009/ChatGPT_Image_18_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._01_09_21_z5yruk.webp','https://res.cloudinary.com/dyb7dyrme/image/upload/v1784450384/e10d2ae8-9197-4fac-a819-8c4448f61b88_phq99g.webp']},
   {id:'lamp',title:'Ліхтар для кемпінгу з гірляндою',price:949,
    short:'20 м USB-гірлянда, підвісний, акумулятор',
    full:'<p class="desc-intro">Підвісний ліхтар з гірляндою 20 м створює затишне освітлення на кемпінгу, дачі чи в дворі, а вбудований акумулятор дозволяє ще й підзарядити телефон.</p><ul class="spec-list">'
@@ -1151,7 +1129,7 @@ var addons=[
      +'<li><span>Кріплення</span><b>магнітна основа + ручка</b></li>'
      +'<li><span>Корпус</span><b>водонепроникний пластик</b></li>'
    +'</ul>',
-   photos:['https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784447008/ChatGPT_Image_18_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._01_17_35_e5ceec.webp','https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784447009/ChatGPT_Image_18_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._01_17_22_oso6gi.webp','https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784447009/ChatGPT_Image_18_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._01_17_17_ombbwu.webp']},
+   photos:['https://res.cloudinary.com/dyb7dyrme/image/upload/v1784447008/ChatGPT_Image_18_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._01_17_35_e5ceec.webp','https://res.cloudinary.com/dyb7dyrme/image/upload/v1784447009/ChatGPT_Image_18_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._01_17_22_oso6gi.webp','https://res.cloudinary.com/dyb7dyrme/image/upload/v1784447009/ChatGPT_Image_18_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._01_17_17_ombbwu.webp']},
   {id:'tent',title:'Автоматична палатка 2-місна',price:849,
    short:'Розкладається за секунди, антимоскітна сітка',
    full:'<p class="desc-intro">Палатка-автомат розкладається одним рухом за лічені секунди — підкидаєте каркас, і намет готовий до ночівлі.</p><ul class="spec-list">'
@@ -1162,7 +1140,7 @@ var addons=[
      +'<li><span>Матеріал дна</span><b>нейлон, водонепроникний</b></li>'
      +'<li><span>Захист</span><b>антимоскітна сітка</b></li>'
    +'</ul>',
-   photos:['https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784447008/ChatGPT_Image_18_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._01_21_20_zzhflp.webp','https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784447008/ChatGPT_Image_18_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._01_21_15_oelmsy.webp','https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784447008/ChatGPT_Image_18_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._01_23_05_dbsrgq.webp']},
+   photos:['https://res.cloudinary.com/dyb7dyrme/image/upload/v1784447008/ChatGPT_Image_18_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._01_21_20_zzhflp.webp','https://res.cloudinary.com/dyb7dyrme/image/upload/v1784447008/ChatGPT_Image_18_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._01_21_15_oelmsy.webp','https://res.cloudinary.com/dyb7dyrme/image/upload/v1784447008/ChatGPT_Image_18_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._01_23_05_dbsrgq.webp']},
   {id:'cookset',title:'Набір похідного посуду, 3 предмети',price:690,
    short:'Складний, алюміній, на 2 персони',
    full:'<p class="desc-intro">Компактний набір туристичного посуду стане в нагоді любителям походів, кемпінгу та відпочинку на природі. У комплекті — каструля зі складними ручками, сковорода-тарілка зі складними ручками та невеликий чайник.</p><ul class="spec-list">'
@@ -1172,8 +1150,8 @@ var addons=[
      +'<li><span>Матеріал</span><b>алюмінієвий сплав з анодованим покриттям</b></li>'
      +'<li><span>Сумісність</span><b>газові та мультипаливні пальники</b></li>'
      +'<li><span>Ручки</span><b>складні, компактне вкладення предметів</b></li>'
-   +'</ul><p style="font-size:12px;color:var(--ink-50);margin-top:10px;text-align:center;">На відкритому вогні використання вкрай не рекомендується.</p>',
-   photos:['https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784447543/ChatGPT_Image_19_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._10_50_18_mvzmkv.webp','https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784447543/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2026-07-18_%D0%B2_01.27.25_dtdc1a.webp','https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784447543/ChatGPT_Image_19_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._10_50_49_ejuvqh.webp']}
+   +'</ul><p style="font-size:12px;color:var(--fog);margin-top:10px;text-align:center;">На відкритому вогні використання вкрай не рекомендується.</p>',
+   photos:['https://res.cloudinary.com/dyb7dyrme/image/upload/v1784447543/ChatGPT_Image_19_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._10_50_18_mvzmkv.webp','https://res.cloudinary.com/dyb7dyrme/image/upload/v1784447543/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2026-07-18_%D0%B2_01.27.25_dtdc1a.webp','https://res.cloudinary.com/dyb7dyrme/image/upload/v1784447543/ChatGPT_Image_19_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._10_50_49_ejuvqh.webp']}
 ];
 var state={};
 var activeSheet=null;
@@ -1182,7 +1160,7 @@ function cardHTML(a){
   return '<div class="addon-card" id="ac-'+a.id+'">'
     +'<div class="addon-photos"><img src="'+a.photos[0]+'" alt="'+a.title+'" loading="lazy" onclick="openSheet(\''+a.id+'\')"></div>'
     +'<div class="addon-body">'
-      +'<h3>'+a.title+'</h3>'
+      +'<h4>'+a.title+'</h4>'
       +'<p class="short">'+a.short+'</p>'
       +'<div class="addon-footer">'
         +'<span class="addon-price">+'+a.price+' грн</span>'
