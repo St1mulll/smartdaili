@@ -527,6 +527,39 @@ a{color:inherit;text-decoration:none;}
   width:17px;height:17px;color:var(--fog);pointer-events:none;
 }
 .field-wrap:focus-within svg{color:var(--ember);}
+.field.invalid{border-color:#e5484d;background:rgba(229,72,77,.08);}
+.field-err{
+  display:none;color:#ff8a8a;font-size:12.5px;font-weight:600;
+  margin:-6px 0 10px 4px;text-align:left;
+}
+.field-err.show{display:block;}
+
+/* order confirm popup */
+.confirm-body{padding:26px 22px 30px;text-align:center;}
+.confirm-body .ok-icon{
+  width:56px;height:56px;border-radius:50%;background:rgba(76,175,109,.15);
+  color:#4caf6d;display:flex;align-items:center;justify-content:center;
+  margin:0 auto 16px;
+}
+.confirm-body .ok-icon svg{width:28px;height:28px;}
+.confirm-body h3{font-family:var(--ff-h);font-size:20px;margin-bottom:8px;color:var(--white);}
+.confirm-body p{font-size:14px;color:var(--mist);margin-bottom:18px;}
+.confirm-data{
+  background:rgba(255,255,255,.05);border-radius:var(--r-m);
+  padding:14px 16px;text-align:left;margin-bottom:18px;
+}
+.confirm-data-row{
+  display:flex;justify-content:space-between;gap:10px;
+  font-size:14px;padding:6px 0;color:var(--white);
+}
+.confirm-data-row span:first-child{color:var(--mist);}
+.confirm-note{font-size:12.5px;color:var(--mist);margin-bottom:16px;}
+.confirm-actions{display:flex;gap:10px;}
+.confirm-actions button{
+  flex:1;padding:13px;border-radius:var(--r-m);font-weight:700;font-size:14px;
+  border:1.5px solid rgba(255,255,255,.14);background:transparent;color:var(--white);
+}
+.confirm-actions .btn-primary{border:none;}
 
 /* короткий список додаткових товарів прямо у формі замовлення */
 .form-addons{margin:18px 0;text-align:left;}
@@ -649,6 +682,12 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '930492246520514');
 fbq('track', 'PageView');
+fbq('track', 'ViewContent', {
+  content_name: 'Туристичний надувний матрац',
+  content_type: 'product',
+  value: 880,
+  currency: 'UAH'
+});
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=930492246520514&ev=PageView&noscript=1"
@@ -844,6 +883,27 @@ src="https://www.facebook.com/tr?id=930492246520514&ev=PageView&noscript=1"
   </div>
 </div>
 
+<!-- ORDER CONFIRMATION POPUP -->
+<div class="info-overlay" id="orderConfirmOverlay">
+  <div class="sheet" onclick="event.stopPropagation()">
+    <div class="sheet-handle"></div>
+    <div class="confirm-body">
+      <div class="ok-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></div>
+      <h3>Дякуємо за замовлення!</h3>
+      <p>Ми зателефонуємо найближчим часом. Будь ласка, перевірте дані нижче — якщо щось не так, натисніть «Змінити дані».</p>
+      <div class="confirm-data">
+        <div class="confirm-data-row"><span>Ім'я</span><span id="confirmName"></span></div>
+        <div class="confirm-data-row"><span>Телефон</span><span id="confirmPhone"></span></div>
+        <div class="confirm-data-row"><span>Сума</span><span id="confirmTotal"></span></div>
+      </div>
+      <div class="confirm-actions">
+        <button type="button" onclick="closeOrderConfirm(true)">Змінити дані</button>
+        <button type="button" class="btn btn-primary" onclick="closeOrderConfirm(false)">Все вірно</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ═══ ORDER ═════════════════════════════════════ -->
 <section class="sec order-sec" id="order">
   <div class="w">
@@ -874,15 +934,17 @@ src="https://www.facebook.com/tr?id=930492246520514&ev=PageView&noscript=1"
           <div class="order-summary-total"><span>Разом до сплати</span><span id="formTotalTop">880 грн</span></div>
         </div>
 
-        <form onsubmit="return onSubmit(event)">
+        <form onsubmit="return onSubmit(event)" id="orderForm" novalidate>
           <div class="field-wrap">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
             <input class="field" type="text" name="name" autocomplete="name" placeholder="Ваше ім'я" required>
           </div>
+          <div class="field-err" id="nameErr">Вкажіть, будь ласка, ім'я (мін. 2 символи)</div>
           <div class="field-wrap">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92Z"/></svg>
-            <input class="field" type="tel" name="phone" autocomplete="tel" placeholder="Номер телефону" value="+380" required>
+            <input class="field" type="tel" name="phone" autocomplete="tel" placeholder="+380 __ ___ __ __" value="+380" required>
           </div>
+          <div class="field-err" id="phoneErr">Введіть повний номер телефону (+380 і 9 цифр)</div>
           <button type="submit" class="btn btn-primary">Замовити зі знижкою — <span id="formPrice">880 грн</span></button>
         </form>
 
@@ -960,8 +1022,13 @@ src="https://www.facebook.com/tr?id=930492246520514&ev=PageView&noscript=1"
 (function(){"use strict";
 
 /* перехід до форми замовлення — надійний скрол з відступом під липку панель */
+var _checkoutFired=false;
 window.goToOrder=function(e){
   if(e&&e.preventDefault)e.preventDefault();
+  if(!_checkoutFired&&typeof fbq==='function'){
+    _checkoutFired=true;
+    fbq('track','InitiateCheckout',{value:880,currency:'UAH',content_type:'product'});
+  }
   var el=document.getElementById('order');
   if(!el)return false;
   var bar=document.querySelector('.urgency');
@@ -1244,6 +1311,15 @@ window.toggleAddon=function(id){
     var cb=formRow.querySelector('input[type="checkbox"]');
     if(cb)cb.checked=!!state[id];
   }
+  if(state[id]&&typeof fbq==='function'){
+    var a=addons.find(function(x){return x.id===id;});
+    fbq('track','AddToCart',{
+      content_name:a?a.title:id,
+      content_type:'product',
+      value:a?a.price:0,
+      currency:'UAH'
+    });
+  }
   if(activeSheet===id)syncSheetBtn(id);
   recalc();
 };
@@ -1327,14 +1403,41 @@ recalc();
 var TG_BOT_TOKEN='8762846621:AAFgd5NI1C8GBPF4jH4hYcggLBdWW4LayLg';
 var TG_CHAT_ID='353934036';
 
+function validPhone(v){
+  var digits=(v||'').replace(/[^\d]/g,'');
+  // очікуємо український номер: 380 + 9 цифр = 12 цифр всього
+  return digits.length===12 && digits.indexOf('380')===0;
+}
+function validName(v){
+  return (v||'').trim().length>=2;
+}
+
 window.onSubmit=function(e){
   e.preventDefault();
   var form=e.target;
   var btn=form.querySelector('button[type="submit"]');
   var orig=btn.innerHTML;
 
-  var name=form.querySelector('input[name="name"]').value;
-  var phone=form.querySelector('input[name="phone"]').value;
+  var nameInput=form.querySelector('input[name="name"]');
+  var phoneInput=form.querySelector('input[name="phone"]');
+  var name=nameInput.value;
+  var phone=phoneInput.value;
+
+  var nameErr=document.getElementById('nameErr');
+  var phoneErr=document.getElementById('phoneErr');
+  var nameOk=validName(name);
+  var phoneOk=validPhone(phone);
+
+  nameInput.classList.toggle('invalid',!nameOk);
+  nameErr.classList.toggle('show',!nameOk);
+  phoneInput.classList.toggle('invalid',!phoneOk);
+  phoneErr.classList.toggle('show',!phoneOk);
+
+  if(!nameOk||!phoneOk){
+    (nameOk?phoneInput:nameInput).focus();
+    return false;
+  }
+
   var s=sizes[curSize];
   var total=window._total||s.price;
 
@@ -1353,10 +1456,8 @@ window.onSubmit=function(e){
   btn.innerHTML='Відправляємо...';
   btn.style.pointerEvents='none';
 
-  if(typeof fbq==='function'){
-    fbq('track','Lead',{value:total,currency:'UAH'});
-    fbq('track','Purchase',{value:total,currency:'UAH',content_name:s.label,content_type:'product'});
-  }
+  // унікальний id події — знадобиться для дедуплікації, якщо додамо Conversions API
+  var eventId='order_'+Date.now()+'_'+Math.random().toString(36).slice(2,8);
 
   fetch('https://api.telegram.org/bot'+TG_BOT_TOKEN+'/sendMessage',{
     method:'POST',
@@ -1364,16 +1465,36 @@ window.onSubmit=function(e){
     body:JSON.stringify({chat_id:TG_CHAT_ID,text:text})
   })
   .then(function(){
-    btn.innerHTML='Дякуємо! Зателефонуємо найближчим часом ✓';
+    if(typeof fbq==='function'){
+      fbq('track','Lead',{value:total,currency:'UAH'},{eventID:eventId+'_lead'});
+      fbq('track','Purchase',{value:total,currency:'UAH',content_name:s.label,content_type:'product'},{eventID:eventId});
+    }
+    document.getElementById('confirmName').textContent=name;
+    document.getElementById('confirmPhone').textContent=phone;
+    document.getElementById('confirmTotal').textContent=total+' грн';
+    document.getElementById('orderConfirmOverlay').classList.add('open');
   })
   .catch(function(){
     btn.innerHTML='Дякуємо! Зателефонуємо найближчим часом ✓';
+    setTimeout(function(){btn.innerHTML=orig;btn.style.pointerEvents='auto';},4000);
   })
   .finally(function(){
-    setTimeout(function(){btn.innerHTML=orig;btn.style.pointerEvents='auto';form.reset();},4000);
+    btn.innerHTML=orig;
+    btn.style.pointerEvents='auto';
   });
 
   return false;
+};
+
+window.closeOrderConfirm=function(editData){
+  document.getElementById('orderConfirmOverlay').classList.remove('open');
+  if(editData){
+    document.getElementById('orderForm').querySelector('input[name="name"]').focus();
+  } else {
+    document.getElementById('orderForm').reset();
+    document.querySelectorAll('#orderForm .field').forEach(function(f){f.classList.remove('invalid');});
+    document.querySelectorAll('#orderForm .field-err').forEach(function(f){f.classList.remove('show');});
+  }
 };
 
 })();
