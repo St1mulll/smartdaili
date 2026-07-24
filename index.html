@@ -26,6 +26,8 @@
 <!-- GA4: вставити тег Google Analytics 4 тут -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://res.cloudinary.com">
+<link rel="preload" as="image" href="https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784589657/ChatGPT_Image_21_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._02_19_41_pa6fua.webp" fetchpriority="high">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
@@ -417,7 +419,7 @@ a{color:inherit;text-decoration:none;}
   transform:translateY(100%);
   transition:transform .3s cubic-bezier(.2,.9,.3,1);
 }
-.sheet-overlay.open .sheet{transform:translateY(0);}
+.sheet-overlay.open .sheet,.info-overlay.open .sheet{transform:translateY(0);}
 .sheet-handle{width:36px;height:4px;background:var(--ink-08);border-radius:99px;margin:14px auto 6px;}
 .sheet-close{
   position:absolute;top:14px;right:16px;
@@ -542,7 +544,7 @@ a{color:inherit;text-decoration:none;}
   margin:0 auto 16px;
 }
 .confirm-body .ok-icon svg{width:28px;height:28px;}
-.confirm-body h3{font-family:var(--ff-h);font-size:20px;margin-bottom:8px;color:var(--white);}
+.confirm-body h3{font-family:var(--ff-d);font-size:20px;font-weight:400;text-transform:uppercase;letter-spacing:.01em;margin-bottom:8px;color:var(--white);}
 .confirm-body p{font-size:14px;color:var(--mist);margin-bottom:18px;}
 .confirm-data{
   background:rgba(255,255,255,.05);border-radius:var(--r-m);
@@ -708,7 +710,7 @@ src="https://www.facebook.com/tr?id=930492246520514&ev=PageView&noscript=1"
   </div>
 
   <div class="hero-img">
-    <img src="https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784589657/ChatGPT_Image_21_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._02_19_41_pa6fua.webp" alt="Туристичний надувний матрац біля вогнища" loading="eager">
+    <img src="https://res.cloudinary.com/dyb7dyrme/image/upload/f_auto,q_auto/v1784589657/ChatGPT_Image_21_%D0%B8%D1%8E%D0%BB._2026_%D0%B3._02_19_41_pa6fua.webp" alt="Туристичний надувний матрац біля вогнища" loading="eager" fetchpriority="high">
   </div>
 
   <div class="w">
@@ -815,7 +817,7 @@ src="https://www.facebook.com/tr?id=930492246520514&ev=PageView&noscript=1"
 <!-- LIGHTBOX -->
 <div class="lb" id="lb" onclick="closeLb(event)">
   <div class="lb-inner">
-    <button class="lb-close" onclick="document.getElementById('lb').classList.remove('open')">✕</button>
+    <button class="lb-close" aria-label="Закрити перегляд фото" onclick="document.getElementById('lb').classList.remove('open')">✕</button>
     <img id="lbImg" alt="">
   </div>
 </div>
@@ -861,7 +863,7 @@ src="https://www.facebook.com/tr?id=930492246520514&ev=PageView&noscript=1"
 <div class="sheet-overlay" id="sheetOverlay" onclick="closeSheet(event)">
   <div class="sheet" onclick="event.stopPropagation()">
     <div class="sheet-handle"></div>
-    <button class="sheet-close" onclick="closeSheet()">✕</button>
+    <button class="sheet-close" aria-label="Закрити" onclick="closeSheet()">✕</button>
     <div class="sheet-photos" id="sheetPhotos"></div>
     <div class="sheet-body">
       <h3 id="sheetTitle"></h3>
@@ -878,7 +880,7 @@ src="https://www.facebook.com/tr?id=930492246520514&ev=PageView&noscript=1"
 <div class="info-overlay" id="infoOverlay" onclick="closeInfo(event)">
   <div class="sheet" onclick="event.stopPropagation()">
     <div class="sheet-handle"></div>
-    <button class="sheet-close" onclick="closeInfo()">✕</button>
+    <button class="sheet-close" aria-label="Закрити" onclick="closeInfo()">✕</button>
     <div class="info-body" id="infoBody"></div>
   </div>
 </div>
@@ -1343,28 +1345,33 @@ function syncSheetBtn(id){
 window.toggleFromSheet=function(){if(activeSheet)toggleAddon(activeSheet);};
 
 var infoText={
-  delivery:'УМОВИ ДОСТАВКИ\n\n'
-    +'Способи доставки:\n'
-    +'• Нова пошта — у відділення, поштомат або кур\'єром за адресою. Термін 1–3 дні залежно від міста.\n'
-    +'• Укрпошта — у відділення. Термін 2–5 днів, зручно для невеликих населених пунктів, де немає Нової пошти.\n\n'
-    +'Оплата:\n'
-    +'Оплата при отриманні (накладений платіж) або безготівковим розрахунком на картку — на вибір під час підтвердження замовлення.\n\n'
-    +'Терміни:\n'
-    +'Відправляємо замовлення протягом 24 годин після підтвердження менеджером (у робочі дні). Номер ТТН надсилаємо одразу після відправлення.',
-  returns:'ПОВЕРНЕННЯ ТА ГАРАНТІЯ\n\n'
-    +'Гарантія:\n'
-    +'На матрац діє гарантія 24 місяці від дати покупки. Якщо виявиться заводський брак (прокол по шву, несправний клапан тощо) — безкоштовно замінимо виріб.\n\n'
-    +'Повернення:\n'
-    +'• 14 днів на повернення, якщо товар не підійшов і зберіг товарний вигляд та упаковку.\n'
-    +'• Повертається повна вартість товару після отримання його на складі.\n'
-    +'• Витрати на відправлення при поверненні за рахунок покупця, якщо причина не в браку з нашого боку.\n\n'
-    +'Як оформити:\n'
-    +'Зателефонуйте нам за номером +380 75 683 52 55 або залиште заявку на сайті — підкажемо, як відправити товар назад.'
+  delivery:'<h3>Умови доставки</h3>'
+    +'<h4>Способи доставки</h4>'
+    +'<ul>'
+    +'<li><b>Нова пошта</b> — у відділення, поштомат або кур\'єром за адресою. Термін 1–3 дні залежно від міста.</li>'
+    +'<li><b>Укрпошта</b> — у відділення. Термін 2–5 днів, зручно для невеликих населених пунктів, де немає Нової пошти.</li>'
+    +'</ul>'
+    +'<h4>Оплата</h4>'
+    +'<p>Оплата при отриманні (накладений платіж) або безготівковим розрахунком на картку — на вибір під час підтвердження замовлення.</p>'
+    +'<h4>Терміни</h4>'
+    +'<p>Відправляємо замовлення протягом 24 годин після підтвердження менеджером (у робочі дні). Номер ТТН надсилаємо одразу після відправлення.</p>',
+  returns:'<h3>Повернення та гарантія</h3>'
+    +'<h4>Гарантія</h4>'
+    +'<p>На матрац діє гарантія 24 місяці від дати покупки. Якщо виявиться заводський брак (прокол по шву, несправний клапан тощо) — безкоштовно замінимо виріб.</p>'
+    +'<h4>Повернення</h4>'
+    +'<ul>'
+    +'<li>14 днів на повернення, якщо товар не підійшов і зберіг товарний вигляд та упаковку.</li>'
+    +'<li>Повертається повна вартість товару після отримання його на складі.</li>'
+    +'<li>Витрати на відправлення при поверненні за рахунок покупця, якщо причина не в браку з нашого боку.</li>'
+    +'</ul>'
+    +'<h4>Як оформити</h4>'
+    +'<p>Зателефонуйте нам за номером <a href="tel:+380756835255" style="color:var(--ember);border-bottom:1px solid currentColor;">+380 75 683 52 55</a> або залиште заявку на сайті — підкажемо, як відправити товар назад.</p>'
 };
 window.openInfo=function(key){
   var t=infoText[key];
   if(!t)return;
-  alert(t);
+  document.getElementById('infoBody').innerHTML=t;
+  document.getElementById('infoOverlay').classList.add('open');
 };
 window.closeInfo=function(e){
   if(!e||e.target===document.getElementById('infoOverlay'))
