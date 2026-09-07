@@ -891,8 +891,25 @@ footer p{font-size:12px;color:var(--fog);margin-bottom:8px;}
   <a href="#order" class="btn btn-primary" style="flex:1;width:auto;">Замовити</a>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 (function(){"use strict";
+
+/* ── CRM (Supabase) ──────────────────────────── */
+var SUPABASE_URL = 'https://qbaksaewkoclevjjstux.supabase.co';
+var SUPABASE_ANON_KEY = 'sb_publishable_SprL5xwouZtPfMPKO3usVg_PFt0zXxe';
+var _supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+function sendOrderToCRM(order){
+  _supabase.from('orders').insert([{
+    name: order.name,
+    phone: order.phone,
+    product: order.product,
+    price: order.price
+  }]).then(function(res){
+    if(res.error) console.error('CRM: не вдалося записати замовлення', res.error);
+  });
+}
 
 /* reveal */
 var revs=document.querySelectorAll('.reveal,.reveal-s');
@@ -1252,6 +1269,20 @@ recalc();
 /* submit */
 window.onSubmit=function(e){
   e.preventDefault();
+  var form=e.target;
+  var name=form.name.value;
+  var phone=form.phone.value;
+
+  var s=sizes[curSize];
+  var productParts=['Матрац, '+s.label];
+  addons.forEach(function(a){
+    if(state[a.id]) productParts.push(a.title);
+  });
+  var product=productParts.join(' + ');
+  var price=window._total||s.price;
+
+  sendOrderToCRM({name:name, phone:phone, product:product, price:price});
+
   var btn=e.target.querySelector('button[type="submit"]');
   var orig=btn.innerHTML;
   btn.innerHTML='Дякуємо! Зателефонуємо найближчим часом ✓';
